@@ -49,12 +49,15 @@ I didn't the AI enough to see if it was measleading.
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+  - Streamlit re-runs your entire script from top to bottom every time you interact with the app — click a button, type in a box, anything. It doesn't update the page in place; it rebuilds it from scratch each time. That means any normal variable resets on every interaction. In this game, writing `secret = random.randint(1, 100)` as a plain variable gave a brand-new secret on every click, so you could never win. `st.session_state` is the fix: it's a "memory box" that survives reruns, so values like the secret, score, and attempt count persist between clicks. That's why the working code wraps the secret in `if "secret" not in st.session_state:` — it only rolls a new number when one doesn't already exist, then keeps it across reruns.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
-- What is one habit or strategy from this project that you want to reuse in future labs or projects?
+- What is one habit or strategy from this project that you want to reuse in future labs or projects? 
+I have to understand what the project is asking in order to understand what I need helpt with. 
   - This could be a testing habit, a prompting strategy, or a way you used Git.
-- What is one thing you would do differently next time you work with AI on a coding task?
+- What is one thing you would do differently next time you work with AI on a coding task? I would be more specific on what I ask. 
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+AI generated code isn't always the most reliable if you're not careful with what you ask AI. 
