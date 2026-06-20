@@ -26,18 +26,27 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+The game's purpose is a number guessing game.
 - [ ] Detail which bugs you found.
+The hints were backwards. When clicking a new game after guessing the correct number, the game doesn't reset. The attempts counter was off. 
 - [ ] Explain what fixes you applied.
+   - Move check_guess into logic_utils.py and import it in app.py
+   - Fix backwards hints: "Too High" now says Go LOWER, "Too Low" says Go HIGHER
+   - Stop corrupting the secret: remove the str() conversion that made the
+     secret an int/string mix, breaking comparisons on even-numbered guesses
+   - Reset full state on New Game (status, score, history) so the game is
+   actually playable after a win or loss, and respect difficulty range
+   - Update tests to match check_guess's (outcome, message) return contract
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 40
+2. Game returns "Too Low"
+3. User enters a guess of 70 → "Too High"
+4. Score updates correctly after each guess
+5. Game ends after the correct guess
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
